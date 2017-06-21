@@ -78,16 +78,23 @@ hr.small {
   align-items: center;
 }
 
+.about-section-content {
+  background-color: #eeeeee;
+  padding: 50px;
+  margin-bottom: 35px;
+}
+
 .about-icons {
   font-size: 2em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: #520b13;
 }
 
 .about-text {
-  /*padding: 2em;*/
+  padding: 1em 2em;
 }
 
 @media only screen and (min-width: 768px) {
@@ -251,7 +258,7 @@ hr.small {
 }
 
 footer {
-  padding: 50px 0 65px;
+  padding: 35px 0 35px;
 }
 footer .list-inline {
   margin: 0;
