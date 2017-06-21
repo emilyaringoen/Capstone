@@ -1,9 +1,10 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Index from './components/index.js'
+import Index from './components/pages/index.js'
 import registerServiceWorker from './registerServiceWorker'
 import './index.css'
 import { BrowserRouter, Route } from 'react-router-dom'
+import './splash.css'
 
 ReactDOM.render(
   <BrowserRouter>
