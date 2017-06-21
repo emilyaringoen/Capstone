@@ -6,10 +6,10 @@
     "node": "v7.9.0"
   },
   "scripts": {
-    "start": "node server/bin/www",
+    "start": "node backend/bin/www",
     "knex": "knex",
     "heroku-postbuild": "cd client/ && npm install --only=dev && npm install && npm run build && cd ../backend && knex migrate:rollback && knex migrate:latest && knex seed:run;",
-    "nodemon": "node server/app.js"
+    "nodemon": "node backend/app.js"
   },
   "dependencies": {
     "body-parser": "~1.16.0",
