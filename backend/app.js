@@ -4,7 +4,10 @@ const favicon = require('serve-favicon')
 const logger = require('morgan')
 const cookieParser = require('cookie-parser')
 const bodyParser = require('body-parser')
+
 const users = require('./routes/users')
+const events = require('./routes/events')
+
 const app = express()
 
 
@@ -20,6 +23,7 @@ app.use(express.static(path.join(__dirname, '../client/build')))
 app.use(express.static(path.join(__dirname, '/../', 'node_modules')))
 
 app.use('/api/users', users)
+app.use('/api/events', events)
 
 app.use('*', function(req, res) {
   res.sendFile(path.resolve(__dirname, '../client/build', 'index.html'))

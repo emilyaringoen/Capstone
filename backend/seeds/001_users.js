@@ -8,7 +8,9 @@ exports.seed = function(knex) {
           password: 'password',
           profile_picture: null,
           bio: 'Human.',
-          date_of_birth: '1993-09-21'
+          date_of_birth: '1993-09-21',
+          parent_1: 2,
+          parent_2: 10
         },
         { id: 2,
           full_name: 'Susan Leight Ringoen',
@@ -24,7 +26,9 @@ exports.seed = function(knex) {
           password: 'password',
           profile_picture: null,
           bio: 'Human.',
-          date_of_birth: '1993-09-21'
+          date_of_birth: '1991-12-13',
+          parent_1: 2,
+          parent_2: 10
         },
         { id: 4,
           full_name: 'Joan Marie Ringoen',
@@ -32,7 +36,9 @@ exports.seed = function(knex) {
           password: 'password',
           profile_picture: 'https://ibb.co/jU8zsk',
           bio: 'Bassoon, Speech Pathologist, Mother of Three, Philanthropist',
-          date_of_birth: '1929-03-10'
+          date_of_birth: '1929-03-10',
+          parent_1: 9,
+          parent_2: 6
         },
         { id: 5,
           full_name: 'Richard Ringoen',
@@ -40,7 +46,9 @@ exports.seed = function(knex) {
           password: 'password',
           profile_picture: 'https://ibb.co/mUeHdQ',
           bio: 'Engineer. CEO. Father.',
-          date_of_birth: '1929-01-01'
+          date_of_birth: '1929-01-01',
+          parent_1: 7,
+          parent_2: 8
         },
         { id: 6,
           full_name: 'John C Brandt',
@@ -73,6 +81,16 @@ exports.seed = function(knex) {
           profile_picture: 'https://ibb.co/enE5Xk',
           bio: 'Imigrant from Germany.',
           date_of_birth: '1929-01-01'
+        },
+        { id: 10,
+          full_name: 'John Ringoen',
+          email: 'n/a',
+          password: 'password',
+          profile_picture: 'https://ibb.co/enE5Xk',
+          bio: 'Imigrant from Germany.',
+          date_of_birth: '1961-06-27',
+          parent_1: 4,
+          parent_2: 5
         }
       ])
     }).then(() => {

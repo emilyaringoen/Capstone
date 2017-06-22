@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import Navbar from '../modules/navbar.js'
 import Footer from '../modules/footer.js'
 import { Link } from 'react-router-dom'
-import $ from 'jquery'
 import '../../javascripts/main.js'
 
 class Timeline extends Component {
@@ -11,8 +10,16 @@ class Timeline extends Component {
   }
 
   componentDidMount() {
-    console.log('component mounted');
-  }
+    console.log('here')
+    fetch(`/api/events/4`, {
+      method: 'GET'
+    }).then(res => {
+      return res.text().then(events => {
+        events = JSON.parse(events)
+        console.log(events)
+      })
+      })
+}
 
   render() {
     return (
