@@ -1,29 +1,27 @@
 import React, { Component } from 'react'
-import Header from '../modules/header.js'
-import About from '../modules/about.js'
+import Navbar from '../modules/navbar.js'
+import Tree from '../modules/tree.js'
 import Footer from '../modules/footer.js'
 
-
-class Index extends Component {
+class FamilyTree extends Component {
   constructor(props) {
     super(props)
-    this.state = {users: []}
   }
 
   componentDidMount() {
     console.log('component mounted');
   }
 
-
   render() {
     return (
-      <div className="App">
-      <Header />
-      <About />
-      <Footer />
+      <div>
+        <Navbar />
+        <Tree />
+        <h1>Family Tree Here</h1>
+        <Footer />
       </div>
     )
   }
 }
 
-export default Index
+export default FamilyTree

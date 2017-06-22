@@ -1,29 +1,25 @@
 import React, { Component } from 'react'
-import Header from '../modules/header.js'
-import About from '../modules/about.js'
+import Navbar from '../modules/navbar.js'
 import Footer from '../modules/footer.js'
 
-
-class Index extends Component {
+class EventItem extends Component {
   constructor(props) {
     super(props)
-    this.state = {users: []}
   }
 
   componentDidMount() {
     console.log('component mounted');
   }
 
-
   render() {
     return (
-      <div className="App">
-      <Header />
-      <About />
-      <Footer />
+      <div>
+        <Navbar />
+        <h1>Events Here</h1>
+        <Footer />
       </div>
     )
   }
 }
 
-export default Index
+export default EventItem
