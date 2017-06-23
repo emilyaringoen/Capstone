@@ -2,11 +2,18 @@ import React, {Component} from 'react'
 import Navbar from '../modules/navbar.js'
 import Tree from '../modules/tree.js'
 import Footer from '../modules/footer.js'
+import { Redirect } from 'react-router-dom'
+
 
 class FamilyTree extends Component {
   constructor(props) {
     super(props)
     this.state = ({family_members: []})
+  }
+
+  componentWillMount() {
+    if (!localStorage.token) {
+    }
   }
 
   componentDidMount() {

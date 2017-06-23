@@ -148,6 +148,10 @@ hr.small {
   padding: 1em 2em;
 }
 
+.login-text {
+  padding: 0em 2em;
+}
+
 /* Time line styling */
 .cd-horizontal-timeline {
   opacity: 0;

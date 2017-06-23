@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Redirect } from 'react-router-dom'
 
 class Login extends Component {
   constructor(props) {
@@ -6,17 +7,44 @@ class Login extends Component {
 
     this.state = {
       email: '',
-      password: ''
+      password: '',
+      redirect: false,
+      message: 'Get Started'
     }
 
     this.handleSubmit = this.handleSubmit.bind(this)
     this.handleEmailChange = this.handleEmailChange.bind(this)
     this.handlePasswordChange = this.handlePasswordChange.bind(this)
+    this.renderRedirect = this.renderRedirect.bind(this)
+
   }
 
   handleSubmit(e) {
     e.preventDefault()
-    console.log('Password ', this.state.password, 'email ', this.state.email)
+    fetch('/api/users',{
+        method: 'POST',
+        body: JSON.stringify({email: this.state.email, password: this.state.password }),
+        headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
+        }).then((res) => {
+          return res.text().then(body => {
+            body = JSON.parse(body)
+            if (body.token !== 'x') {
+              localStorage.setItem('token', body.token)
+              localStorage.setItem('userId', body.userId)
+              this.setState({redirect: true})
+            } else {
+              this.setState({message: 'Error logging in, please try again.', email: '', password: ''})
+            }
+          })
+    })
+  }
+
+  renderRedirect() {
+    if (this.state.redirect) {
+      return(
+      <Redirect to="/family-tree" />
+    )
+  }
   }
 
   handleEmailChange(e) {
@@ -30,17 +58,18 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="about-text text-center">
-          <p className="text-center">Get Started</p>
+      <div className="login-text text-center">
+          <p className="text-center">{this.state.message}</p>
           <form onSubmit={this.handleSubmit}>
               <div className="form-group">
                 <input type="text" className="form-control" placeholder="Email" value={this.state.email} onChange={this.handleEmailChange}/>
               </div>
               <div className="form-group">
-                <input type="text" className="form-control" placeholder="Password" value={this.state.password} onChange={this.handlePasswordChange}/>
+                <input type="password" className="form-control" placeholder="Password" value={this.state.password} onChange={this.handlePasswordChange}/>
               </div>
               <button className="btn btn-default" type="submit">Log In</button>
           </form>
+          {this.renderRedirect()}
       </div>
     )
   }
