@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Login from './login.js'
 
 class About extends Component {
   render() {
@@ -14,16 +15,7 @@ class About extends Component {
             </div>
             <div className="col-xs-12 col-sm-4">
               <span className="glyphicon glyphicon-cog about-icons" aria-hidden="true"></span>
-              <form className="about-text text-center">
-              <p className="text-center">Get Started</p>
-                <div className="form-group">
-                  <input type="text" className="form-control" placeholder="Email" />
-                </div>
-                <div className="form-group">
-                  <input type="text" className="form-control" placeholder="Password" />
-                </div>
-                <button type="submit" className="btn btn-default">Log In</button>
-              </form>
+              <Login />
             </div>
             <div className="col-xs-12 col-sm-4">
               <span className="glyphicon glyphicon-tree-deciduous about-icons" aria-hidden="true"></span>

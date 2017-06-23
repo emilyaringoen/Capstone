@@ -7,13 +7,7 @@ import Footer from '../modules/footer.js'
 class Index extends Component {
   constructor(props) {
     super(props)
-    this.state = {users: []}
   }
-
-  componentDidMount() {
-    console.log('component mounted');
-  }
-
 
   render() {
     return (

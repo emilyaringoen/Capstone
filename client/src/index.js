@@ -6,7 +6,7 @@ import Timeline from './components/pages/timeline.js'
 import EventItem from './components/pages/event.js'
 import registerServiceWorker from './registerServiceWorker'
 import { BrowserRouter, Route } from 'react-router-dom'
-import './app.css'
+import './App.css'
 
 
 ReactDOM.render(
