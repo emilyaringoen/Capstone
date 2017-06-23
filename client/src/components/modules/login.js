@@ -1,5 +1,5 @@
-import React, { Component } from 'react'
-import { Redirect } from 'react-router-dom'
+import React, {Component} from 'react'
+import {Redirect} from 'react-router-dom'
 
 class Login extends Component {
   constructor(props) {
@@ -8,6 +8,7 @@ class Login extends Component {
     this.state = {
       email: '',
       password: '',
+      family: '',
       redirect: false,
       message: 'Get Started'
     }
@@ -21,30 +22,31 @@ class Login extends Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    fetch('/api/users',{
-        method: 'POST',
-        body: JSON.stringify({email: this.state.email, password: this.state.password }),
-        headers: {'Accept': 'application/json', 'Content-Type': 'application/json'},
-        }).then((res) => {
-          return res.text().then(body => {
-            body = JSON.parse(body)
-            if (body.token !== 'x') {
-              localStorage.setItem('token', body.token)
-              localStorage.setItem('userId', body.userId)
-              this.setState({redirect: true})
-            } else {
-              this.setState({message: 'Error logging in, please try again.', email: '', password: ''})
-            }
-          })
+    fetch('/api/users', {
+      method: 'POST',
+      body: JSON.stringify({email: this.state.email, password: this.state.password}),
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }).then((res) => {
+      return res.text().then(body => {
+        body = JSON.parse(body)
+        if (body.token !== 'x') {
+          localStorage.setItem('token', body.token)
+          localStorage.setItem('userId', body.userId)
+          this.setState({redirect: true, family: body.family})
+        } else {
+          this.setState({message: 'Error logging in, please try again.', email: '', password: ''})
+        }
+      })
     })
   }
 
   renderRedirect() {
     if (this.state.redirect) {
-      return(
-      <Redirect to="/family-tree" />
-    )
-  }
+      return (<Redirect to={"/family-tree/" + this.state.family}/>)
+    }
   }
 
   handleEmailChange(e) {
@@ -59,17 +61,17 @@ class Login extends Component {
   render() {
     return (
       <div className="login-text text-center">
-          <p className="text-center">{this.state.message}</p>
-          <form onSubmit={this.handleSubmit}>
-              <div className="form-group">
-                <input type="text" className="form-control" placeholder="Email" value={this.state.email} onChange={this.handleEmailChange}/>
-              </div>
-              <div className="form-group">
-                <input type="password" className="form-control" placeholder="Password" value={this.state.password} onChange={this.handlePasswordChange}/>
-              </div>
-              <button className="btn btn-default" type="submit">Log In</button>
-          </form>
-          {this.renderRedirect()}
+        <p className="text-center">{this.state.message}</p>
+        <form onSubmit={this.handleSubmit}>
+          <div className="form-group">
+            <input type="text" className="form-control" placeholder="Email" value={this.state.email} onChange={this.handleEmailChange}/>
+          </div>
+          <div className="form-group">
+            <input type="password" className="form-control" placeholder="Password" value={this.state.password} onChange={this.handlePasswordChange}/>
+          </div>
+          <button className="btn btn-default" type="submit">Log In</button>
+        </form>
+        {this.renderRedirect()}
       </div>
     )
   }

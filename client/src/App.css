@@ -152,6 +152,10 @@ hr.small {
   padding: 0em 2em;
 }
 
+.signup-text {
+  padding-top: 1em;
+}
+
 /* Time line styling */
 .cd-horizontal-timeline {
   opacity: 0;

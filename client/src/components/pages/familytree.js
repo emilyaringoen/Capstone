@@ -8,11 +8,24 @@ import { Redirect } from 'react-router-dom'
 class FamilyTree extends Component {
   constructor(props) {
     super(props)
-    this.state = ({family_members: []})
+    this.state = {
+      family_members: [],
+      redirect: false
+    }
+
+    this.renderRedirect = this.renderRedirect.bind(this)
+
   }
 
   componentWillMount() {
     if (!localStorage.token) {
+      this.setState({redirect: true})
+    }
+  }
+
+  renderRedirect() {
+    if (this.state.redirect) {
+      return (<Redirect to="/"/>)
     }
   }
 
@@ -46,8 +59,9 @@ class FamilyTree extends Component {
         <Navbar/>
         <Tree/>
         <h1>Family Tree Here</h1>
-        // <div>{this.state.family_members}</div>
+        <div>{this.state.family_members}</div>
         <Footer/>
+        {this.renderRedirect()}
       </div>
     )
   }

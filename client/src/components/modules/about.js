@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import Login from './login.js'
+import { Link } from 'react-router-dom'
 
 class About extends Component {
   render() {
@@ -16,6 +17,7 @@ class About extends Component {
             <div className="col-xs-12 col-sm-4">
               <span className="glyphicon glyphicon-cog about-icons" aria-hidden="true"></span>
               <Login />
+              <div className="text-center signup-text"><Link to="/signup">New to the site? Sign up Here</Link></div>
             </div>
             <div className="col-xs-12 col-sm-4">
               <span className="glyphicon glyphicon-tree-deciduous about-icons" aria-hidden="true"></span>

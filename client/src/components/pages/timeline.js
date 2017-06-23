@@ -3,6 +3,8 @@ import Navbar from '../modules/navbar.js'
 import Footer from '../modules/footer.js'
 import {Link} from 'react-router-dom'
 import '../../javascripts/main.js'
+import { Redirect } from 'react-router-dom'
+
 
 class Timeline extends Component {
   constructor(props) {
@@ -10,7 +12,23 @@ class Timeline extends Component {
 
     this.state = {
       eventList: [],
-      eventInfo: []
+      eventInfo: [],
+      redirect: false
+    }
+
+    this.renderRedirect = this.renderRedirect.bind(this)
+
+  }
+
+  componentWillMount() {
+    if (!localStorage.token) {
+      this.setState({redirect: true})
+    }
+  }
+
+  renderRedirect() {
+    if (this.state.redirect) {
+      return (<Redirect to="/"/>)
     }
   }
 
@@ -217,6 +235,7 @@ class Timeline extends Component {
         <ol>{this.state.eventList}</ol>
         <ol>{this.state.eventInfo}</ol>
         <Footer/>
+        {this.renderRedirect()}
       </div>
     )
   }

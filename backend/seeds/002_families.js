@@ -4,12 +4,6 @@ exports.seed = function(knex) {
       return knex('families').insert([
         { id: 1,
           family_name: 'Ringoen',
-        },
-        { id: 2,
-          family_name: 'Fischer',
-        },
-        { id: 3,
-          family_name: 'Brandt',
         }
       ])
     }).then(() => {

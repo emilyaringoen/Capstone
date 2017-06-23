@@ -19,6 +19,8 @@ router.get('/:id', (req, res, next) => {
 
 router.post('/', (req, res, next) => {
   knex('users')
+    .select(['users.id as u_id', 'users.password', 'users_families.family_id as f_id'])
+    .join('users_families', 'users_families.user_id', 'users.id')
     .where('email', req.body.email)
     .then((user) => {
       if (user.length > 0) {
@@ -27,7 +29,7 @@ router.post('/', (req, res, next) => {
               let token = jwt.sign({
                 user: user
               }, 'secret_key')
-              res.status(200).send({token: token, userId: user[0].id})
+              res.status(200).send({token: token, userId: user[0].u_id, family: user[0].f_id})
             } else {
               res.status(200).send({token: 'x', userId: 'x'})
             }
