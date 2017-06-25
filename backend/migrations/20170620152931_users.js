@@ -5,10 +5,9 @@ exports.up = function(knex) {
     table.string('email').notNullable()
     table.string('password').notNullable()
     table.string('profile_picture')
-    table.string('bio').notNullable()
+    table.text('bio').notNullable()
     table.date('date_of_birth').notNullable()
-    table.integer('parent_1').references('users.id')
-    table.integer('parent_2').references('users.id')
+    table.string('gender').notNullable()
     table.timestamps(true, true)
   })
 }

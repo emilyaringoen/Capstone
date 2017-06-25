@@ -9,8 +9,7 @@ exports.seed = function(knex) {
           profile_picture: null,
           bio: 'Human.',
           date_of_birth: '1993-09-21',
-          parent_1: 2,
-          parent_2: 10
+          gender: 'F'
         },
         { id: 2,
           full_name: 'Susan Leigh Ringoen',
@@ -18,7 +17,8 @@ exports.seed = function(knex) {
           password: '$2a$10$Fc.LzEYTQVz45lXPiZNlZeHITNWLEWierUxBSv5VPZu6f3GIamPTS',
           profile_picture: null,
           bio: 'Human.',
-          date_of_birth: '1965-04-16'
+          date_of_birth: '1965-04-16',
+          gender: 'F'
         },
         { id: 3,
           full_name: 'Jamie Marie Fischer',
@@ -27,8 +27,7 @@ exports.seed = function(knex) {
           profile_picture: null,
           bio: 'Human.',
           date_of_birth: '1991-12-13',
-          parent_1: 2,
-          parent_2: 10
+          gender: 'F'
         },
         { id: 4,
           full_name: 'Joan Marie Ringoen',
@@ -37,8 +36,7 @@ exports.seed = function(knex) {
           profile_picture: 'https://ibb.co/jU8zsk',
           bio: 'Bassoon, Speech Pathologist, Mother of Three, Philanthropist',
           date_of_birth: '1929-03-10',
-          parent_1: 9,
-          parent_2: 6
+          gender: 'F'
         },
         { id: 5,
           full_name: 'Richard Ringoen',
@@ -47,8 +45,7 @@ exports.seed = function(knex) {
           profile_picture: 'https://ibb.co/mUeHdQ',
           bio: 'Engineer. CEO. Father.',
           date_of_birth: '1929-01-01',
-          parent_1: 7,
-          parent_2: 8
+          gender: 'M'
         },
         { id: 6,
           full_name: 'John C Brandt',
@@ -56,7 +53,8 @@ exports.seed = function(knex) {
           password: 'password',
           profile_picture: 'https://ibb.co/bG5esk',
           bio: 'Imigrant from Germany.',
-          date_of_birth: '1929-01-01'
+          date_of_birth: '1929-01-01',
+          gender: 'M'
         },
         { id: 9,
           full_name: 'Marie Brandt',
@@ -64,7 +62,8 @@ exports.seed = function(knex) {
           password: 'password',
           profile_picture: 'https://ibb.co/izng55',
           bio: 'Imigrant from Germany.',
-          date_of_birth: '1929-01-01'
+          date_of_birth: '1929-01-01',
+          gender: 'F'
         },
         { id: 7,
           full_name: 'Evelyn Ringoen',
@@ -72,7 +71,8 @@ exports.seed = function(knex) {
           password: 'password',
           profile_picture: 'https://ibb.co/enE5Xk',
           bio: 'Imigrant from Germany.',
-          date_of_birth: '1929-01-01'
+          date_of_birth: '1929-01-01',
+          gender: 'F'
         },
         { id: 8,
           full_name: 'Elmer Ringoen',
@@ -80,7 +80,8 @@ exports.seed = function(knex) {
           password: 'password',
           profile_picture: 'https://ibb.co/enE5Xk',
           bio: 'Imigrant from Germany.',
-          date_of_birth: '1929-01-01'
+          date_of_birth: '1893-01-01',
+          gender: 'M'
         },
         { id: 10,
           full_name: 'John Ringoen',
@@ -89,8 +90,97 @@ exports.seed = function(knex) {
           profile_picture: 'https://ibb.co/enE5Xk',
           bio: 'Imigrant from Germany.',
           date_of_birth: '1961-06-27',
-          parent_1: 4,
-          parent_2: 5
+          gender: 'M'
+        },
+        { id: 11,
+          full_name: 'Nancy Current',
+          email: 'n/a',
+          password: 'password',
+          profile_picture: null,
+          bio: 'Human',
+          date_of_birth: '1942-03-15',
+          gender: 'F'
+        },
+        { id: 12,
+          full_name: 'Bill Current',
+          email: 'n/a',
+          password: 'password',
+          profile_picture: 'https://ibb.co/enE5Xk',
+          bio: 'Imigrant from Germany.',
+          date_of_birth: '1939-05-29',
+          gender: 'M'
+        },
+        { id: 13,
+          full_name: 'Ann Pearl Neimann',
+          email: 'n/a',
+          password: 'password',
+          profile_picture: 'https://ibb.co/enE5Xk',
+          bio: 'Imigrant from Germany.',
+          date_of_birth: '1961-06-27',
+          gender: 'F'
+        },
+        { id: 14,
+          full_name: 'Arthur Neimann',
+          email: 'n/a',
+          password: 'password',
+          profile_picture: 'https://ibb.co/enE5Xk',
+          bio: 'Imigrant from Germany.',
+          date_of_birth: '1961-06-27',
+          gender: 'M'
+        },
+        { id: 15,
+          full_name: 'Evelyn Current',
+          email: 'n/a',
+          password: 'password',
+          profile_picture: 'https://ibb.co/enE5Xk',
+          bio: 'Imigrant from Germany.',
+          date_of_birth: '1961-06-27',
+          gender: 'M'
+        },
+        { id: 16,
+          full_name: 'Lucene Current',
+          email: 'n/a',
+          password: 'password',
+          profile_picture: 'https://ibb.co/enE5Xk',
+          bio: 'Imigrant from Germany.',
+          date_of_birth: '1961-06-27',
+          gender: 'M'
+        },
+        { id: 17,
+          full_name: 'Oluf R Ringoen',
+          email: 'n/a',
+          password: 'password',
+          profile_picture: 'https://ibb.co/enE5Xk',
+          bio: 'Died 1919',
+          date_of_birth: '1869-01-01',
+          gender: 'M'
+        },
+        { id: 18,
+          full_name: 'Sarah Magness Ringoen',
+          email: 'n/a',
+          password: 'password',
+          profile_picture: 'https://ibb.co/enE5Xk',
+          bio: 'Died 1921',
+          date_of_birth: '1869-01-01',
+          gender: 'M'
+        },
+        { id: 19,
+          full_name: 'Magnus Rebe Ringoen',
+          email: 'n/a',
+          password: 'password',
+          profile_picture: 'https://ibb.co/enE5Xk',
+          bio: 'Died 1921',
+          date_of_birth: '1838-01-01',
+          gender: 'M'
+        },
+        { id: 20,
+          full_name: 'Martha Maria Ringoen',
+          email: 'n/a',
+          password: 'password',
+          profile_picture: 'https://ibb.co/enE5Xk',
+          bio: 'Died 1921',
+          date_of_birth: '1851-01-01',
+          gender: 'M'
         }
       ])
     }).then(() => {

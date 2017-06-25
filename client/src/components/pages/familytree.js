@@ -10,7 +10,22 @@ class FamilyTree extends Component {
     super(props)
     this.state = {
       family_members: [],
-      redirect: false
+      redirect: false,
+      root_member: '',
+      mother: '',
+      father: '',
+      grandmother1: '',
+      grandfather1: '',
+      grandmother2: '',
+      grandfather2: '',
+      ggmother1: '',
+      ggfather1: '',
+      ggmother2: '',
+      ggfather2: '',
+      ggmother3: '',
+      ggfather3: '',
+      ggmother4: '',
+      ggfather4: '',
     }
 
     this.renderRedirect = this.renderRedirect.bind(this)
@@ -30,25 +45,27 @@ class FamilyTree extends Component {
   }
 
   componentDidMount() {
-    fetch(`/api/users/1`, {method: 'GET'}).then(res => {
+    let familyId = window.location.pathname.split('/')[2]
+    fetch(`/api/users/${familyId}`, {method: 'GET'}).then(res => {
       return res.text().then(members => {
         members = JSON.parse(members)
-       let list = []
-        members = members.sort((a, b) => {
-          let a_date = a.date_of_birth.substring(0, 4)
-          let b_date = b.date_of_birth.substring(0, 4)
-          return a_date - b_date
-        })
         members.forEach((person) => {
-          list.push(
-            <li key={person.id}>
-              <h2>{person.full_name}</h2>
-              <p>{person.date_of_birth.substring(0, 10)}</p>
-              <p>a: {person.parent_1} b: {person.parent_2}</p>
-            </li>
-          )
+          if (person.role == 1) this.setState({root_member: person})
+          if (person.role == 2) this.setState({mother: person})
+          if (person.role == 3) this.setState({father: person})
+          if (person.role == 4) this.setState({grandmother1: person})
+          if (person.role == 5) this.setState({grandfather1: person})
+          if (person.role == 6) this.setState({grandmother2: person})
+          if (person.role == 7) this.setState({grandfather2: person})
+          if (person.role == 8) this.setState({ggmother1: person})
+          if (person.role == 9) this.setState({ggfather1: person})
+          if (person.role == 10) this.setState({ggmother2: person})
+          if (person.role == 11) this.setState({ggfather2: person})
+          if (person.role == 12) this.setState({ggmother3: person})
+          if (person.role == 13) this.setState({ggfather3: person})
+          if (person.role == 14) this.setState({ggmother4: person})
+          if (person.role == 15) this.setState({ggfather4: person})
         })
-        this.setState({family_members: list})
       })
     })
   }
@@ -58,8 +75,71 @@ class FamilyTree extends Component {
       <div>
         <Navbar/>
         <Tree/>
-        <h1>Family Tree Here</h1>
-        <div>{this.state.family_members}</div>
+        <div className="container">
+        <div className="tree text-center">
+        	<ul>
+        		<li className="rootLi">
+        			<p>{this.state.root_member.full_name}</p>
+        			<ul>
+        				<li>
+        					<p>{this.state.mother.full_name}</p>
+        					<ul>
+        						<li>
+        							<p>{this.state.grandmother1.full_name}</p>
+                      <ul>
+                        <li>
+                          <p>{this.state.ggmother1.full_name}</p>
+                        </li>
+                        <li>
+                          <p>{this.state.ggfather1.full_name}</p>
+                        </li>
+                      </ul>
+        						</li>
+                    <li>
+        							<p>{this.state.grandfather1.full_name}</p>
+                      <ul>
+                        <li>
+                          <p>{this.state.ggmother2.full_name}</p>
+                        </li>
+                        <li>
+                          <p>{this.state.ggfather2.full_name}</p>
+                        </li>
+                      </ul>
+        						</li>
+        					</ul>
+        				</li>
+        				<li>
+        					<p>{this.state.father.full_name}</p>
+                  <ul>
+        						<li>
+        							<p>{this.state.grandmother2.full_name}</p>
+                      <ul>
+                        <li>
+                          <p>{this.state.ggmother3.full_name}</p>
+                        </li>
+                        <li>
+                          <p>{this.state.ggfather3.full_name}</p>
+                        </li>
+                      </ul>
+        						</li>
+                    <li>
+        							<p>{this.state.grandfather2.full_name}</p>
+                      <ul>
+                        <li>
+                          <p>{this.state.ggmother4.full_name}</p>
+                        </li>
+                        <li>
+                          <p>{this.state.ggfather4.full_name}</p>
+                        </li>
+                      </ul>
+        						</li>
+        					</ul>
+        				</li>
+        					</ul>
+        				</li>
+        			</ul>
+        </div>
+        </div>
         <Footer/>
         {this.renderRedirect()}
       </div>

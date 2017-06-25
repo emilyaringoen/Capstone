@@ -3,6 +3,7 @@ exports.up = function(knex) {
     table.increments()
     table.integer('user_id').references('users.id').onDelete('CASCADE')
     table.integer('family_id').references('families.id').onDelete('CASCADE')
+    table.string('role').notNullable()
     table.timestamps(true, true)
   })
 }

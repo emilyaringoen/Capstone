@@ -13,9 +13,9 @@ ReactDOM.render(
   <BrowserRouter>
     <div className="App">
       <Route exact name="index" path="/" component={ Index }></Route>
-      <Route exact name="family-tree" path="/family-tree" component={ FamilyTree }></Route>
-      <Route exact name="timeline" path="/timeline" component={ Timeline }></Route>
-      <Route exact name="event" path="/event" component={ EventItem }></Route>
+      <Route name="family-tree" path="/family-tree" component={ FamilyTree }></Route>
+      <Route name="timeline" path="/timeline" component={ Timeline }></Route>
+      <Route name="event" path="/event" component={ EventItem }></Route>
     </div>
   </BrowserRouter>,
    document.getElementById('root')
