@@ -2,15 +2,15 @@ import React, {Component} from 'react'
 import Navbar from '../modules/navbar.js'
 import Tree from '../modules/tree.js'
 import Footer from '../modules/footer.js'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
 
 
 class FamilyTree extends Component {
   constructor(props) {
     super(props)
     this.state = {
-      family_members: [],
       redirect: false,
+      family: '',
       root_member: '',
       mother: '',
       father: '',
@@ -25,7 +25,7 @@ class FamilyTree extends Component {
       ggmother3: '',
       ggfather3: '',
       ggmother4: '',
-      ggfather4: '',
+      ggfather4: ''
     }
 
     this.renderRedirect = this.renderRedirect.bind(this)
@@ -50,7 +50,7 @@ class FamilyTree extends Component {
       return res.text().then(members => {
         members = JSON.parse(members)
         members.forEach((person) => {
-          if (person.role == 1) this.setState({root_member: person})
+          if (person.role == 1) this.setState({root_member: person, family: person.family_name})
           if (person.role == 2) this.setState({mother: person})
           if (person.role == 3) this.setState({father: person})
           if (person.role == 4) this.setState({grandmother1: person})
@@ -77,59 +77,60 @@ class FamilyTree extends Component {
         <Tree/>
         <div className="container">
         <div className="tree text-center">
+        <h1>The {this.state.family} Family Tree</h1>
         	<ul>
         		<li className="rootLi">
-        			<p>{this.state.root_member.full_name}</p>
+        			<Link to={`/timeline/${this.state.root_member.id}`}>{this.state.root_member.full_name}</Link>
         			<ul>
         				<li>
-        					<p>{this.state.mother.full_name}</p>
+        					<Link to={`/timeline/${this.state.mother.id}`}>{this.state.mother.full_name}</Link>
         					<ul>
         						<li>
-        							<p>{this.state.grandmother1.full_name}</p>
+        							<Link to={`/timeline/${this.state.grandmother1.id}`}>{this.state.grandmother1.full_name}</Link>
                       <ul>
                         <li>
-                          <p>{this.state.ggmother1.full_name}</p>
+                          <Link to={`/timeline/${this.state.ggmother1.id}`}>{this.state.ggmother1.full_name}</Link>
                         </li>
                         <li>
-                          <p>{this.state.ggfather1.full_name}</p>
+                          <Link to={`/timeline/${this.state.ggfather1.id}`}>{this.state.ggfather1.full_name}</Link>
                         </li>
                       </ul>
         						</li>
                     <li>
-        							<p>{this.state.grandfather1.full_name}</p>
+        							<Link to={`/timeline/${this.state.grandfather1.id}`}>{this.state.grandfather1.full_name}</Link>
                       <ul>
                         <li>
-                          <p>{this.state.ggmother2.full_name}</p>
+                          <Link to={`/timeline/${this.state.ggmother2.id}`}>{this.state.ggmother2.full_name}</Link>
                         </li>
                         <li>
-                          <p>{this.state.ggfather2.full_name}</p>
+                          <Link to={`/timeline/${this.state.ggfather2.id}`}>{this.state.ggfather2.full_name}</Link>
                         </li>
                       </ul>
         						</li>
         					</ul>
         				</li>
         				<li>
-        					<p>{this.state.father.full_name}</p>
+        					<Link to={`/timeline/${this.state.father.id}`}>{this.state.father.full_name}</Link>
                   <ul>
         						<li>
-        							<p>{this.state.grandmother2.full_name}</p>
+        							<Link to={`/timeline/${this.state.grandmother2.id}`}>{this.state.grandmother2.full_name}</Link>
                       <ul>
                         <li>
-                          <p>{this.state.ggmother3.full_name}</p>
+                          <Link to={`/timeline/${this.state.ggmother3.id}`}>{this.state.ggmother3.full_name}</Link>
                         </li>
                         <li>
-                          <p>{this.state.ggfather3.full_name}</p>
+                          <Link to={`/timeline/${this.state.ggfather3.id}`}>{this.state.ggfather3.full_name}</Link>
                         </li>
                       </ul>
         						</li>
                     <li>
-        							<p>{this.state.grandfather2.full_name}</p>
+        							<Link to={`/timeline/${this.state.grandfather2.id}`}>{this.state.grandfather2.full_name}</Link>
                       <ul>
                         <li>
-                          <p>{this.state.ggmother4.full_name}</p>
+                          <Link to={`/timeline/${this.state.ggmother4.id}`}>{this.state.ggmother4.full_name}</Link>
                         </li>
                         <li>
-                          <p>{this.state.ggfather4.full_name}</p>
+                          <Link to={`/timeline/${this.state.ggfather4.id}`}>{this.state.ggfather4.full_name}</Link>
                         </li>
                       </ul>
         						</li>

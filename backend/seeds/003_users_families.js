@@ -85,22 +85,22 @@ exports.seed = function(knex) {
         { id: 17,
           user_id: 17,
           family_id: 1,
-          role: '18'
+          role: '17'
         },
         { id: 18,
           user_id: 18,
           family_id: 1,
-          role: '17'
+          role: '16'
         },
         { id: 19,
           user_id: 19,
           family_id: 1,
-          role: '19'
+          role: '18'
         },
         { id: 20,
           user_id: 20,
           family_id: 1,
-          role: '20'
+          role: '19'
         }
       ])
     }).then(() => {

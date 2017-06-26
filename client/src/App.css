@@ -704,7 +704,7 @@ footer .copyright {
 
 .tree {
   margin: 5em auto;
-  height: 75vh;
+  height: 60vh;
 }
 
 .rootLi {
@@ -777,7 +777,7 @@ right connector from last child*/
 	width: 0; height: 20px;
 }
 
-.tree li p{
+.tree li a{
 	border: 1px solid #ccc;
 	padding: 5px 10px;
 	text-decoration: none;
@@ -797,13 +797,13 @@ right connector from last child*/
 
 /*Time for some hover effects*/
 /*We will apply the hover effect the the lineage of the element also*/
-.tree li p:hover, .tree li p:hover+ul li p {
+.tree li a:hover, .tree li a:hover+ul li a {
 	background: #c8e4f8; color: #000; border: 1px solid #94a0b4;
 }
 /*Connector styles on hover*/
-.tree li p:hover+ul li::after,
-.tree li p:hover+ul li::before,
-.tree li p:hover+ul::before,
-.tree li p:hover+ul ul::before{
+.tree li a:hover+ul li::after,
+.tree li a:hover+ul li::before,
+.tree li a:hover+ul::before,
+.tree li a:hover+ul ul::before{
 	border-color:  #94a0b4;
 }

@@ -8,7 +8,7 @@ const knex = require('../knex')
 router.get('/:id', (req, res, next) => {
   let id = +req.params.id
   knex('families')
-    .select('users.id', 'full_name', 'date_of_birth', 'role')
+    .select('users.id', 'full_name', 'date_of_birth', 'role', 'family_name')
     .join('users_families', 'users_families.family_id', 'families.id')
     .join('users', 'users.id', 'users_families.user_id')
     .where('families.id', id)
